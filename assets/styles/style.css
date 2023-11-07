@@ -1,0 +1,723 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+:root {
+  --moderate-cyan: #3cb4ac;
+  --dark-cyan: #147b74;
+  --black: (0, 0%, 0%);
+  --dark-gray: hsl(0, 0%, 48%);
+}
+
+body {
+  background-color: #FAFAFA;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 450px) {
+  .container {
+    width: 90%;
+  }
+}
+
+.bg-modal-navbar-mobile {
+  width: 100%;
+  background-color: rgba(42, 42, 42, 0.242);
+  position: fixed;
+  height: 100vh;
+  z-index: 10;
+  display: none;
+  font-family: "Commissioner";
+}
+.bg-modal-navbar-mobile .navbar-mobile-item {
+  background-color: white;
+  position: absolute;
+  top: 160px;
+  color: #000000;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  border-radius: 8px;
+}
+.bg-modal-navbar-mobile .navbar-mobile-item li {
+  list-style-type: none;
+  height: 60px;
+  font-weight: 500;
+  padding: 0 1.5em;
+  display: flex;
+  align-items: center;
+  border-bottom: 1.5px solid #808080;
+}
+.bg-modal-navbar-mobile .navbar-mobile-item li:last-child {
+  border-bottom: 0px solid #808080;
+}
+@media screen and (min-width: 451) {
+  .bg-modal-navbar-mobile {
+    display: none;
+  }
+}
+
+.bg-banner {
+  height: 400px;
+  width: 100%;
+  font-family: "Commissioner";
+  color: #F4F4F4;
+  background-image: url("../../images/image-hero-desktop.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.bg-banner .navbar-mobile {
+  display: none;
+  width: 100%;
+  height: 50px;
+  z-index: 10;
+  font-family: "Commissioner";
+}
+@media screen and (max-width: 450px) {
+  .bg-banner .navbar-mobile {
+    display: flex;
+  }
+}
+.bg-banner .navbar {
+  width: 100%;
+  padding: 1.2em 0;
+  z-index: 10;
+  background: none;
+}
+.bg-banner .navbar ul {
+  width: 270px;
+}
+.bg-banner .navbar ul li {
+  list-style-type: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+@media screen and (max-width: 450px) {
+  .bg-banner .navbar {
+    display: none;
+  }
+}
+
+.content {
+  max-width: 680px;
+  top: -60px;
+  margin: 0 auto;
+  font-family: "Commissioner";
+}
+.content .header {
+  height: 120px;
+}
+.content .header .header-text {
+  text-align: center;
+}
+.content .header .header-text h2 {
+  margin-bottom: 18px;
+}
+.content .header .header-text span {
+  color: #808080;
+}
+@media screen and (max-width: 450px) {
+  .content .header {
+    height: 140px;
+  }
+}
+.content .buttons {
+  margin-top: auto;
+  position: relative;
+}
+.content .buttons .button-project {
+  width: 170px;
+}
+.content .buttons .button-project button {
+  background-color: var(--moderate-cyan);
+  cursor: pointer;
+  color: #F4F4F4;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-weight: 700;
+  height: 45px;
+  font-family: "Commissioner";
+  border-radius: 50px;
+}
+.content .buttons .button-project button:hover {
+  background-color: var(--dark-cyan);
+}
+@media screen and (max-width: 450px) {
+  .content .buttons .button-project button {
+    height: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .content .buttons .button-project {
+    width: 75%;
+    position: absolute;
+    height: 100%;
+  }
+}
+.content .buttons .button-bookmark button {
+  cursor: pointer;
+  background-color: #FAFAFA;
+  border: none;
+  outline: none;
+  width: 170px;
+  font-family: "Commissioner";
+  color: var(--dark-gray);
+  border-radius: 50px;
+  font-weight: 700;
+  height: 45px;
+}
+.content .buttons .button-bookmark button img {
+  margin-right: 20px;
+  width: 45px;
+  height: 100%;
+}
+@media screen and (max-width: 450px) {
+  .content .buttons .button-bookmark button img {
+    width: 55px;
+    height: 55px;
+    margin-right: 0px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .content .buttons .button-bookmark button span {
+    display: none;
+  }
+}
+@media screen and (max-width: 450px) {
+  .content .buttons .button-bookmark button {
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+@media screen and (max-width: 450px) {
+  .content .buttons .button-bookmark {
+    margin-left: auto;
+  }
+}
+@media screen and (max-width: 450px) {
+  .content .buttons {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+.content .total-backers {
+  height: 95px;
+}
+.content .total-backers .total-backers-item div {
+  border-right: 1.5px solid #808080;
+  width: 160px;
+  margin-right: 10px;
+}
+.content .total-backers .total-backers-item div span:first-child {
+  font-weight: 700;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+.content .total-backers .total-backers-item div span:last-child {
+  font-size: 12px;
+  color: #808080;
+}
+.content .total-backers .total-backers-item div:last-child {
+  border-right: 0px solid #808080;
+}
+@media screen and (max-width: 450px) {
+  .content .total-backers .total-backers-item div {
+    border-right: 0px solid #808080;
+    text-align: center;
+    position: relative;
+    height: 90px;
+  }
+  .content .total-backers .total-backers-item div:not(.content .total-backers .total-backers-item div:last-child)::after {
+    content: "";
+    position: absolute;
+    width: 40%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    bottom: 15px;
+    height: 1.5px;
+    background-color: #808080;
+  }
+  .content .total-backers .total-backers-item div:not(.content .total-backers .total-backers-item div:last-child) {
+    margin-bottom: 15px;
+  }
+}
+.content .total-backers #fill {
+  width: 100%;
+  height: 10px;
+  border-radius: 50px;
+  background: #E2EFF1;
+  overflow: hidden;
+}
+.content .total-backers #fill .test {
+  border-radius: 50px;
+  background-color: var(--moderate-cyan);
+  height: 100%;
+}
+@media screen and (max-width: 450px) {
+  .content .total-backers {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+.content .about div:first-child h4 {
+  margin-bottom: 2em;
+}
+.content .about div:first-child span {
+  line-height: 1.7;
+  color: #808080;
+}
+.content .about .reward {
+  margin-top: 1.8em;
+  padding: 24px 20px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.content .about .reward span {
+  line-height: 1.7;
+  color: #808080;
+}
+.content .about .reward .reward-header:first-child {
+  margin-bottom: 20px;
+}
+.content .about .reward .reward-header:first-child span:first-child {
+  font-weight: 700;
+  color: black;
+}
+.content .about .reward .reward-header:first-child span:last-child {
+  font-weight: 500;
+  color: var(--moderate-cyan);
+}
+.content .about .reward .reward-footer {
+  margin-top: 28px;
+}
+.content .about .reward .reward-footer button {
+  background-color: var(--moderate-cyan);
+  color: #F4F4F4;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 140px;
+  font-weight: 700;
+  height: 45px;
+  font-family: "Commissioner";
+  border-radius: 50px;
+}
+.content .about .reward .reward-footer button:hover {
+  background-color: var(--dark-cyan);
+}
+
+#project-modal {
+  width: 100%;
+  font-family: "Commissioner";
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  display: none;
+  position: fixed;
+  background-color: rgba(42, 42, 42, 0.242);
+}
+#project-modal .project-modal-header {
+  padding: 1.2em 2em;
+  top: 0;
+  margin-bottom: 0.2em;
+  position: sticky;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+#project-modal .project-modal-header #close-modal {
+  cursor: pointer;
+}
+#project-modal .project-modal-header span {
+  line-height: 1.7;
+}
+#project-modal .project-modal-header span:last-child {
+  color: #808080;
+}
+#project-modal #project-item {
+  overflow-y: scroll;
+  width: 100%;
+  margin: 0px 0;
+  padding: 18px 2em;
+}
+#project-modal #project-item .project {
+  padding: 1.5em;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: height 0.2s ease-in;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+#project-modal #project-item .project .border-modal-project {
+  padding: 0.6em;
+  margin-right: 20px;
+  border-radius: 50%;
+  border: 1px solid #808080;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 450px) {
+  #project-modal #project-item .project .border-modal-project {
+    top: 15px;
+  }
+}
+#project-modal #project-item .project .border-modal-project-active {
+  padding: 0.3em;
+  margin-right: 20px;
+  border-radius: 50%;
+  border: 1px solid #808080;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#project-modal #project-item .project .border-modal-project-active::before {
+  content: "";
+  padding: 0.3em;
+  border-radius: 50%;
+  background-color: var(--moderate-cyan);
+}
+#project-modal #project-item .project .text-modal-project {
+  color: black;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+#project-modal #project-item .project .text-modal-project p:first-child {
+  margin-right: 18px;
+}
+@media screen and (max-width: 450px) {
+  #project-modal #project-item .project .text-modal-project p {
+    margin-right: 0px;
+  }
+}
+@media screen and (max-width: 450px) {
+  #project-modal #project-item .project .text-modal-project {
+    height: 50px;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 450px) {
+  #project-modal #project-item .project .stock-xl {
+    display: none;
+  }
+}
+#project-modal #project-item .project .stock-mb {
+  margin-top: 18px;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#project-modal #project-item .project .stock-mb p:first-child {
+  margin-right: 8px;
+}
+@media screen and (min-width: 451px) {
+  #project-modal #project-item .project .stock-mb {
+    display: none;
+  }
+}
+@media screen and (max-width: 450px) {
+  #project-modal #project-item .project .reward-description {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 90px;
+    padding: 0 1.5em;
+  }
+}
+#project-modal #project-item .project span {
+  color: #808080;
+  line-height: 1.8;
+}
+#project-modal #project-item .project:last-child {
+  margin-bottom: 0px;
+}
+#project-modal .form-pledge {
+  height: 80px;
+  position: absolute;
+  left: 0;
+  bottom: -80px;
+  padding: 0 1.5em;
+  transition: bottom 0.2s ease-in;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+#project-modal .form-pledge .inputs {
+  width: 280px;
+}
+#project-modal .form-pledge .inputs .text-input {
+  width: 120px;
+  border: 1.5px solid var(--moderate-cyan);
+  overflow: hidden;
+  border-radius: 50px;
+  padding: 0 1.4em;
+  height: 40px;
+}
+#project-modal .form-pledge .inputs .text-input p {
+  color: #808080;
+  font-weight: 500;
+}
+#project-modal .form-pledge .inputs .text-input input {
+  border: none;
+  position: relative;
+  outline: none;
+  font-weight: 600;
+  margin: 0;
+  width: 100%;
+  margin-left: 6px;
+  padding: 0;
+}
+#project-modal .form-pledge .inputs .text-input button {
+  height: 15px;
+  width: 15px;
+  border: none;
+  outline: none;
+  background: none;
+}
+#project-modal .form-pledge .inputs .btn-continue {
+  width: 120px;
+  background-color: var(--moderate-cyan);
+  cursor: pointer;
+  border-radius: 50px;
+  height: 40px;
+  color: white;
+  border: none;
+  outline: none;
+}
+#project-modal .form-pledge .inputs .btn-continue:hover {
+  background-color: var(--dark-cyan);
+}
+@media screen and (max-width: 450px) {
+  #project-modal .form-pledge {
+    height: 120px;
+    bottom: -120px;
+    padding: 1.15em 1.5em;
+  }
+}
+
+#complete-modal {
+  width: 100%;
+  font-family: "Commissioner";
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  display: none;
+  position: fixed;
+  background-color: rgba(42, 42, 42, 0.242);
+}
+#complete-modal .complete-modal-text {
+  width: 90%;
+  margin: 1.5em 0;
+  text-align: center;
+}
+#complete-modal .complete-modal-text span {
+  line-height: 1.7;
+  color: #808080;
+}
+#complete-modal .gotit-btn {
+  background-color: var(--moderate-cyan);
+  cursor: pointer;
+  color: #F4F4F4;
+  border: none;
+  outline: none;
+  width: 100px;
+  font-weight: 700;
+  height: 45px;
+  font-family: "Commissioner";
+  border-radius: 50px;
+}
+
+.bg-modal-content {
+  background-color: white;
+  position: fixed;
+  width: 700px;
+  border-radius: 8px;
+  height: 500px;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+@media screen and (max-width: 450px) {
+  .bg-modal-content {
+    width: 100%;
+    border-radius: 0px;
+    height: 100%;
+  }
+}
+
+.bg-modal-content-complete {
+  background-color: white;
+  position: fixed;
+  width: 500px;
+  border-radius: 8px;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 1.5em 0;
+}
+@media screen and (max-width: 450px) {
+  .bg-modal-content-complete {
+    width: 90%;
+  }
+}
+
+.bg-transparent {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.bg-content {
+  background-color: #FFFFFF;
+  padding: 2.5em 1.5em;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 2em;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+@media screen and (max-width: 450px) {
+  .bg-content {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.border {
+  border: 1px solid red;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+  top: 0px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-items-center {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+  .flex-items-center-mb {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.flex-items-start {
+  display: flex;
+  align-items: flex-start;
+}
+
+.flex-between-items-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+@media screen and (max-width: 450px) {
+  .flex-column-mb {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .w-100-mb {
+    width: 100%;
+  }
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+  .flex-column-center-center-mb {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .flex-column-between-center-mb {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.h-100 {
+  height: 100%;
+}/*# sourceMappingURL=style.css.map */
