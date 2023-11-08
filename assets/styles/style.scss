@@ -49,7 +49,7 @@ input[type="number"] {
     .navbar-mobile-item {
         background-color: white;
         position: absolute;
-        top: 160px;
+        top: 155px;
         color: #000000;
         transform: translate(-50%, -50%);
         left: 50%;
@@ -57,12 +57,12 @@ input[type="number"] {
 
         li {
             list-style-type: none;
-            height: 60px;
+            height: 58px;
             font-weight: 500;
-            padding: 0 1.5em;
+            padding: 0 1em;
             display: flex;
             align-items: center;
-            border-bottom: 1.5px solid #808080;
+            border-bottom: 1.5px solid #e7e7e7;
 
             &:last-child {
                 border-bottom: 0px solid #808080;
@@ -115,6 +115,21 @@ input[type="number"] {
         @media screen and (max-width: 450px) {
             display: none;
         }
+    }
+    @media screen and (max-width: 450px) {
+        // height: 85%;
+        height: 290px;
+        background-size:contain;
+        background-position: top;
+        // background-repeat: repeat;
+        width: 100%;
+        background-image: url('../../images/image-hero-mobile.jpg');
+    }
+    @media screen and (min-width: 1440px) {
+        // height: 85%;
+        background-size: cover;
+        background-position: top;
+        height: 500px;
     }
 }
 
@@ -235,7 +250,7 @@ input[type="number"] {
 
         .total-backers-item {
             div {
-                border-right: 1.5px solid #808080;
+                border-right: 1.5px solid #c9c9c9;
                 width: 160px;
                 margin-right: 10px;
 
@@ -273,7 +288,7 @@ input[type="number"] {
                             left: 50%;
                             bottom: 15px;
                             height: 1.5px;
-                            background-color: #808080;
+                            background-color: #c9c9c9;
                         }
                     }
 
@@ -366,6 +381,12 @@ input[type="number"] {
                     &:hover {
                         background-color: var(--dark-cyan);
                     }
+                    @media screen and (max-width: 450px) {
+                        margin-top: 10px;
+                    }
+                }
+                @media screen and (max-width: 450px) {
+                    margin-top: 18px;
                 }
             }
 
@@ -373,6 +394,9 @@ input[type="number"] {
             //     margin-top: 22px;
             // }
         }
+    }
+    @media screen and (min-width: 1440px) {
+        top: -80px;
     }
 }
 
@@ -654,6 +678,9 @@ input[type="number"] {
         border-radius: 0px;
         height: 100%;
     }
+    @media screen and (min-width: 1440px) {
+        height: 85%;
+    }
 }
 
 .bg-modal-content-complete {
@@ -747,6 +774,13 @@ input[type="number"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.flex-between-items-start-mb {
+    @media screen and (max-width: 450px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 }
 
 .flex {

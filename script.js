@@ -361,7 +361,7 @@ const showData = () => {
     div.innerHTML =
       `
           <div class="reward ${stock === 0 ? "position-relative" : ""}">
-                <div class="flex-between reward-header">
+                <div class="flex-between flex-column-mb reward-header">
                   <span style="color:${stock === 0 ? "#9F9F9F" : ""};">
                     ${rewardHeader}
                   </span>
@@ -373,9 +373,9 @@ const showData = () => {
                 <span>
                   ${rewardDescription}
                 </span>
-                <div class="flex-between-items-center reward-footer">
+                <div class="flex-between-items-center flex-between-items-start-mb flex-column-mb reward-footer">
                   <div class="flex-between-items-center h-100">
-                    <span style="font-size: 25px;color: ${stock === 0 ? "#7F7F7F" : "black"};font-weight: 700;">${stock}</span>
+                    <span style="font-size: 28px;color: ${stock === 0 ? "#7F7F7F" : "black"};font-weight: 700;">${stock}</span>
                     <span style="color: ${stock === 0 ? "#7F7F7F" : "#808080"};margin-left: 8px;">left</span>
                   </div>
                   <button>

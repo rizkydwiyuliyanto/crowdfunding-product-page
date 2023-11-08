@@ -48,7 +48,7 @@ input[type=number] {
 .bg-modal-navbar-mobile .navbar-mobile-item {
   background-color: white;
   position: absolute;
-  top: 160px;
+  top: 155px;
   color: #000000;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -56,12 +56,12 @@ input[type=number] {
 }
 .bg-modal-navbar-mobile .navbar-mobile-item li {
   list-style-type: none;
-  height: 60px;
+  height: 58px;
   font-weight: 500;
-  padding: 0 1.5em;
+  padding: 0 1em;
   display: flex;
   align-items: center;
-  border-bottom: 1.5px solid #808080;
+  border-bottom: 1.5px solid #e7e7e7;
 }
 .bg-modal-navbar-mobile .navbar-mobile-item li:last-child {
   border-bottom: 0px solid #808080;
@@ -110,6 +110,22 @@ input[type=number] {
 @media screen and (max-width: 450px) {
   .bg-banner .navbar {
     display: none;
+  }
+}
+@media screen and (max-width: 450px) {
+  .bg-banner {
+    height: 290px;
+    background-size: contain;
+    background-position: top;
+    width: 100%;
+    background-image: url("../../images/image-hero-mobile.jpg");
+  }
+}
+@media screen and (min-width: 1440px) {
+  .bg-banner {
+    background-size: cover;
+    background-position: top;
+    height: 500px;
   }
 }
 
@@ -222,7 +238,7 @@ input[type=number] {
   height: 95px;
 }
 .content .total-backers .total-backers-item div {
-  border-right: 1.5px solid #808080;
+  border-right: 1.5px solid #c9c9c9;
   width: 160px;
   margin-right: 10px;
 }
@@ -253,7 +269,7 @@ input[type=number] {
     left: 50%;
     bottom: 15px;
     height: 1.5px;
-    background-color: #808080;
+    background-color: #c9c9c9;
   }
   .content .total-backers .total-backers-item div:not(.content .total-backers .total-backers-item div:last-child) {
     margin-bottom: 15px;
@@ -323,6 +339,21 @@ input[type=number] {
 }
 .content .about .reward .reward-footer button:hover {
   background-color: var(--dark-cyan);
+}
+@media screen and (max-width: 450px) {
+  .content .about .reward .reward-footer button {
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .content .about .reward .reward-footer {
+    margin-top: 18px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .content {
+    top: -80px;
+  }
 }
 
 #project-modal {
@@ -573,6 +604,11 @@ input[type=number] {
     height: 100%;
   }
 }
+@media screen and (min-width: 1440px) {
+  .bg-modal-content {
+    height: 85%;
+  }
+}
 
 .bg-modal-content-complete {
   background-color: white;
@@ -668,6 +704,14 @@ input[type=number] {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+  .flex-between-items-start-mb {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
 
 .flex {
