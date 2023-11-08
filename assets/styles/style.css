@@ -115,7 +115,7 @@ input[type=number] {
 @media screen and (max-width: 450px) {
   .bg-banner {
     height: 290px;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
     width: 100%;
     background-image: url("../../images/image-hero-mobile.jpg");
@@ -499,6 +499,14 @@ input[type=number] {
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
+#project-modal .form-pledge span {
+  font-weight: 500;
+}
+@media screen and (max-width: 450px) {
+  #project-modal .form-pledge span:first-child {
+    margin-bottom: 8px;
+  }
+}
 #project-modal .form-pledge .inputs {
   width: 280px;
 }
@@ -546,8 +554,8 @@ input[type=number] {
 }
 @media screen and (max-width: 450px) {
   #project-modal .form-pledge {
-    height: 120px;
-    bottom: -120px;
+    height: -moz-fit-content;
+    height: fit-content;
     padding: 1.15em 1.5em;
   }
 }
@@ -626,6 +634,7 @@ input[type=number] {
 @media screen and (max-width: 450px) {
   .bg-modal-content-complete {
     width: 90%;
+    top: 38%;
   }
 }
 
@@ -692,6 +701,13 @@ input[type=number] {
   .flex-items-center-mb {
     display: flex;
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .flex-center-mb {
+    display: flex;
+    justify-content: center;
   }
 }
 

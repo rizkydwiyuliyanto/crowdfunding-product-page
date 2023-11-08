@@ -119,7 +119,7 @@ input[type="number"] {
     @media screen and (max-width: 450px) {
         // height: 85%;
         height: 290px;
-        background-size:contain;
+        background-size:cover;
         background-position: top;
         // background-repeat: repeat;
         width: 100%;
@@ -558,7 +558,14 @@ input[type="number"] {
         transition: bottom 0.2s ease-in;
         width: 100%;
         box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-
+        span {
+            font-weight: 500;
+            @media screen and (max-width: 450px) {
+               &:first-child {
+                margin-bottom: 8px;
+               }
+            }
+        }
         .inputs {
             width: 280px;
 
@@ -615,8 +622,8 @@ input[type="number"] {
             }
         }
         @media screen and (max-width: 450px) {
-            height: 120px;
-            bottom: -120px;
+            height: fit-content;
+            // bottom: -120px;
             padding: 1.15em 1.5em;
         }
     }
@@ -697,6 +704,7 @@ input[type="number"] {
     padding: 1.5em 0;
     @media screen and (max-width: 450px) {
         width: 90%;
+        top: 38%;
     }
 }
 
@@ -762,6 +770,12 @@ input[type="number"] {
     @media screen and (max-width: 450px) {
         display: flex;
         align-items: center;
+    }
+}
+.flex-center-mb {
+    @media screen and (max-width: 450px) {
+        display: flex;
+        justify-content: center;
     }
 }
 

@@ -42,7 +42,6 @@ const setProgres = (x) => {
   let pattern = /\d+/g;
   let setNominal = Number(nominal.innerText.match(pattern).join(""));
   nominal.innerText = `$${new Intl.NumberFormat().format(setNominal + x)}`
-  console.log(setNominal)
   test.style.width = `${countProgress(setNominal + x)}%`
 }
 const setReward = (id, stock) => {
@@ -106,7 +105,6 @@ open_navbar_icon.onclick = () => {
   open_navbar_icon.src = imageSrc;
   bg_modal_navbar_mobile.style.display = display;
   document.body.style.overflow = overflow
-  console.log("HEELOW WORLD")
 }
 
 
@@ -128,9 +126,13 @@ open_modal.onclick = () => {
           <div class="flex-column margin-item">
             <div class="flex-between">
               <div class="text-modal-project">
-                <p class="id-reward-header">
+                <p style="margin: auto;" class="id-reward-header">
                   Pledge with no reward
                 </p>
+              </div>
+              <div class="flex stock-xl" style="opacity:0;">
+                <p style="font-weight: 700;font-size: 18px;" class="stock"></p>
+                <p style="margin-left: 6px;">left</p>
               </div>
             </div>
             <div class="reward-description">
@@ -138,15 +140,41 @@ open_modal.onclick = () => {
                 Choose to support us without a reward if you simply believe in our project. As a backer,
                 you will be signed up to receive product updates via email
               </span>
-              <div class="flex-between-items-center stock-mb">
-                <p style="font-weight: 700;font-size: 20px;" class="stock">${stock}</p>
-                <p>left</p>
+              <div class="flex-between-items-center stock-mb" style="opacity:0;position: absolute;">
+                <p style="font-weight: 700;font-size: 20px;" class="stock"></p>
+                <p style="">left</p>
               </div>
             </div>
           </div>
         </div>
         <div class="flex-between-items-center flex-column-between-center-mb form-pledge">
           <div style="margin-left: auto;" class="flex-between-items-center inputs">
+            <div class="flex-between-items-center inputs">
+            <div class="text-input flex-items-center" style="opacity: 0;">
+              <p>$</p>
+                <input 
+                  type="number" 
+                  min="0" 
+                  max="0" 
+                  data-pledge=0 
+                  data-stock=0
+                  class="pledge-input" 
+                  value=0 
+                  onkeypress="return false;"
+                >
+              <div class="flex-column">
+                <button class="steup">
+                    <img src="./images/arrow-up.png" width="10">
+                </button>
+                <button class="stepdown" >
+                    <img 
+                      src="./images/arrow-up.png" 
+                      width="10"
+                      style="transform: rotate(180deg);"
+                      >
+                </button>
+              </div>
+            </div>      
             <div style="margin-left: auto;" class="buttons-pledge flex-between">
               <button class="btn-continue">Continue</button>
             </div>
@@ -254,12 +282,12 @@ open_modal.onclick = () => {
     let reward_descriptionHeight = Number(reward_description[idx].offsetHeight);
     let projectHeight = Number(project[idx].offsetHeight);
     let formPledgeHeight = Number(form_pledge[idx].offsetHeight);
-    console.log(formPledgeHeight)
     height.push({
       projectHeight: document.body.clientWidth > 450 ? projectHeight : projectHeight + reward_descriptionHeight,
       formPledgeHeight: formPledgeHeight
     })
     project[idx].style.height = `${document.body.clientWidth > 450 ? projectHeight : projectHeight + reward_descriptionHeight}px`;
+    form_pledge[idx].style.bottom = "-" + formPledgeHeight + "px"
     elem.onclick = () => {
       active = !active;
       text_modal_project.forEach((elem2, idx2) => {
