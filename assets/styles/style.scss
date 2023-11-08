@@ -517,7 +517,10 @@ input[type="number"] {
             }
         }
     }
-
+    #project-item2 {
+        display: flex;
+        flex-direction: column;
+    }
     .margin-item {
         // margin-bottom: 60px;
     }

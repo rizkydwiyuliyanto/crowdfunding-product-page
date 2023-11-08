@@ -23,14 +23,18 @@ const myFunction = (e) => {
     e.target.value = inputPledge
   }
 }
-const count = (x) => {
+const countProgress = (x) => {
   return x / 1000;
 }
-
+let stock = {}
+let count = 1;
+let id;
+let progress;
+let max = 100000;
 const setTotalBacked = (x) => {
   let pattern = /\d+/g;
   let setNominal = Number(x.match(pattern).join(""));
-  total_backed.innerText = `${new Intl.NumberFormat().format(setNominal + 1)}`
+  total_backed.innerText = `${new Intl.NumberFormat().format(setNominal + count)}`
 }
 
 const setProgres = (x) => {
@@ -38,7 +42,8 @@ const setProgres = (x) => {
   let pattern = /\d+/g;
   let setNominal = Number(nominal.innerText.match(pattern).join(""));
   nominal.innerText = `$${new Intl.NumberFormat().format(setNominal + x)}`
-  test.style.width = `${count(setNominal + x)}%`
+  console.log(setNominal)
+  test.style.width = `${countProgress(setNominal + x)}%`
 }
 const setReward = (id, stock) => {
   let stockValue;
@@ -63,16 +68,20 @@ const test2 = (idx, x) => {
   // console.log(stock)
   if (Number(x) < 0) {
     pledge_input[idx].stepDown(`${Number(x.split("-")[1])}`)
-    if (pledge_input[idx].getAttribute("data-stock") != stockValue) stock[idx].firstElementChild.innerText = `${Number(stockValue + 1)}`
+    if (pledge_input[idx].getAttribute("data-stock") != stockValue) {
+      count -= 1
+      stock[idx].firstElementChild.innerText = `${Number(stockValue + 1)}`
+    }
     // console.log(`${x}`)
   } else {
     pledge_input[idx].stepUp(`${Number(x)}`)
-    if (stockValue) stock[idx].firstElementChild.innerText = `${Number(stockValue - 1)}`
+    if (stockValue) {
+      count += 1
+      stock[idx].firstElementChild.innerText = `${Number(stockValue - 1)}`
+    }
   }
 }
-let stock = {}
-let id;
-let progress;
+
 gotit_btn.onclick = () => {
   complete_modal.style.display = "none";
   document.body.style.overflow = "auto"
@@ -80,6 +89,7 @@ gotit_btn.onclick = () => {
     setReward(id, stock);
     setProgres(progress);
     setTotalBacked(total_backed.innerText)
+    count = 1
   }
   setTimeout(() => {
     myFunction()
@@ -109,6 +119,42 @@ open_modal.onclick = () => {
   stock = {}
   id = ""
   progress = ""
+  const div = document.createElement("div");
+  div.innerHTML =
+    `
+        <div class="project flex-column position-relative" style="margin-bottom: 22px">
+        <div class="flex-items-start">
+          <div class="border-modal-project"></div>
+          <div class="flex-column margin-item">
+            <div class="flex-between">
+              <div class="text-modal-project">
+                <p class="id-reward-header">
+                  Pledge with no reward
+                </p>
+              </div>
+            </div>
+            <div class="reward-description">
+              <span>
+                Choose to support us without a reward if you simply believe in our project. As a backer,
+                you will be signed up to receive product updates via email
+              </span>
+              <div class="flex-between-items-center stock-mb">
+                <p style="font-weight: 700;font-size: 20px;" class="stock">${stock}</p>
+                <p>left</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-between-items-center flex-column-between-center-mb form-pledge">
+          <div style="margin-left: auto;" class="flex-between-items-center inputs">
+            <div style="margin-left: auto;" class="buttons-pledge flex-between">
+              <button class="btn-continue">Continue</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  `
+  newdiv.appendChild(div);
   currentReward.forEach((x, idx) => {
     let { rewardHeader, pledge, rewardDescription, stock } = x
     const div = document.createElement("div");
@@ -193,6 +239,7 @@ open_modal.onclick = () => {
   let height = []
   text_modal_project.forEach((elem, idx) => {
     let active = false;
+    console.log(elem)
     elem.onmouseenter = () => {
       border_modal_project[idx].style.border = "1px solid #3cb4ac"
       elem.style.color = "#3cb4ac"
@@ -209,10 +256,10 @@ open_modal.onclick = () => {
     let formPledgeHeight = Number(form_pledge[idx].offsetHeight);
     console.log(formPledgeHeight)
     height.push({
-      projectHeight: document.body.clientWidth > 450 ? projectHeight : projectHeight+reward_descriptionHeight,
+      projectHeight: document.body.clientWidth > 450 ? projectHeight : projectHeight + reward_descriptionHeight,
       formPledgeHeight: formPledgeHeight
     })
-    project[idx].style.height = `${document.body.clientWidth > 450 ? projectHeight : projectHeight+reward_descriptionHeight}px`;
+    project[idx].style.height = `${document.body.clientWidth > 450 ? projectHeight : projectHeight + reward_descriptionHeight}px`;
     elem.onclick = () => {
       active = !active;
       text_modal_project.forEach((elem2, idx2) => {
@@ -226,7 +273,7 @@ open_modal.onclick = () => {
         const myFunction = () => {
           project[idx2].style.boxShadow = projectBoxShadow;
         }
-        setTimeout(() =>{
+        setTimeout(() => {
           myFunction();
           clearTimeout(myFunction())
         }, 200)
@@ -245,6 +292,8 @@ open_modal.onclick = () => {
   btn_continue.forEach((elem, idx) => {
     elem.onclick = (e) => {
       const value = pledge_input[idx].value;
+      let pattern = /\d+/g;
+      let setNominal = Number(nominal.innerText.match(pattern).join(""));
       const idValue = document.querySelectorAll(".id-reward-header")[idx];
       const stockValue = document.querySelectorAll(".stock")[idx];
       //   console.log(id.innerText)
@@ -254,8 +303,13 @@ open_modal.onclick = () => {
       }
       id = idValue.innerText
       progress = Number(value)
-      document.getElementById("project-modal").style.display = "none"
-      complete_modal.style.display = "block"
+      console.log(setNominal + progress)
+      if ((setNominal + progress) <= max) {
+        complete_modal.style.display = "block"
+        document.getElementById("project-modal").style.display = "none"
+      } else {
+        alert("Maximum")
+      }
     }
   })
   steup.forEach((elem, idx) => {
