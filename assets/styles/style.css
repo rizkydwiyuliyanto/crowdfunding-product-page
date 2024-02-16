@@ -370,9 +370,7 @@ input[type=number] {
 }
 #project-modal .project-modal-header {
   padding: 1.2em 2em;
-  top: 0;
   margin-bottom: 0.2em;
-  position: sticky;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 #project-modal .project-modal-header #close-modal {
@@ -451,22 +449,8 @@ input[type=number] {
   }
 }
 @media screen and (max-width: 450px) {
-  #project-modal #project-item .project .stock-xl {
-    display: none;
-  }
-}
-#project-modal #project-item .project .stock-mb {
-  margin-top: 18px;
-  align-items: center;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-#project-modal #project-item .project .stock-mb p:first-child {
-  margin-right: 8px;
-}
-@media screen and (min-width: 451px) {
-  #project-modal #project-item .project .stock-mb {
-    display: none;
+  #project-modal #project-item .project .reward-description .stock-xl {
+    margin-top: 7px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -478,7 +462,7 @@ input[type=number] {
     padding: 0 1.5em;
   }
 }
-#project-modal #project-item .project span {
+#project-modal #project-item .project .reward-description span {
   color: #808080;
   line-height: 1.8;
 }

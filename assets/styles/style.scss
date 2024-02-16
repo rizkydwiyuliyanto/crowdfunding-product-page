@@ -417,9 +417,8 @@ input[type="number"] {
         // width: 100%;
         // left: 0;
         padding: 1.2em 2em;
-        top: 0;
+        // top: 0;
         margin-bottom: 0.2em;
-        position: sticky;
         // border-bottom: 1.2px solid #808080;
         box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
         #close-modal {
@@ -447,9 +446,9 @@ input[type="number"] {
             padding: 1.5em;
             border-radius: 6px;
             overflow: hidden;
+            // height: 400px;
             transition: height 0.2s ease-in;
             box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-
             .border-modal-project {
                 padding: 0.6em;
                 margin-right: 20px;
@@ -487,6 +486,7 @@ input[type="number"] {
                 font-weight: 700;
                 margin-bottom: 20px;
                 display: flex;
+
                 // width: ;
                 justify-content: space-between;
                 cursor: pointer;
@@ -503,38 +503,28 @@ input[type="number"] {
                     flex-direction: column;
                 }
             }
-            .stock-xl {
-                @media screen and (max-width: 450px) {
-                    display: none;
-                }
-            }
-            .stock-mb {
-                margin-top: 18px;
-                align-items: center;
-                width: fit-content;                
-                p {
-                    &:first-child {
-                        margin-right: 8px;
+            .reward-description {
+                .stock-xl {
+                    @media screen and (max-width: 450px) {
+                        margin-top: 7px;
                     }
                 }
-                @media screen and (min-width: 451px) {
-                    display: none;
-                }
-            }
-            .reward-description {
+ 
                 @media screen and (max-width: 450px) {
                     position: absolute;
+                    // height: 00px;
                     width: 100%;
+                    // height: fit-content;
                     left: 0;
                     top: 90px;
                     padding: 0 1.5em;
                 }
+                span {
+                    color: #808080;
+                    line-height: 1.8;
+                }
             }
 
-            span {
-                color: #808080;
-                line-height: 1.8;
-            }
 
             &:last-child {
                 margin-bottom: 0px;

@@ -61,7 +61,7 @@ close_modal.onclick = () => {
 }
 const test2 = (idx, x) => {
   const pledge_input = document.querySelectorAll(".pledge-input");
-  let s = document.body.clientWidth > 450 ? ".stock-xl" : ".stock-mb"
+  let s = ".stock-xl"
   const stock = document.querySelectorAll(s);
   let stockValue = Number(stock[idx].firstElementChild.innerText)
   // console.log(stock)
@@ -125,7 +125,7 @@ open_modal.onclick = () => {
           <div class="border-modal-project"></div>
           <div class="flex-column margin-item">
             <div class="flex-between">
-              <div class="text-modal-project">
+              <div class="text-modal-project available">
                 <p style="margin: auto;" class="id-reward-header">
                   Pledge with no reward
                 </p>
@@ -135,15 +135,11 @@ open_modal.onclick = () => {
                 <p style="margin-left: 6px;">left</p>
               </div>
             </div>
-            <div class="reward-description">
+            <div class="reward-description available-reward-description">
               <span>
                 Choose to support us without a reward if you simply believe in our project. As a backer,
                 you will be signed up to receive product updates via email
               </span>
-              <div class="flex-between-items-center stock-mb" style="opacity:0;position: absolute;">
-                <p style="font-weight: 700;font-size: 20px;" class="stock"></p>
-                <p style="">left</p>
-              </div>
             </div>
           </div>
         </div>
@@ -194,7 +190,7 @@ open_modal.onclick = () => {
             <div class="${stock === 0 ? "bg-transparent" : ""}"></div>
             <div class="flex-column margin-item">
               <div class="flex-between">
-                <div class="text-modal-project">
+                <div class="text-modal-project available">
                   <p class="id-reward-header" style="color:${stock === 0 ? "#7F7F7F" : ""};">
                     ${rewardHeader}
                   </p>
@@ -202,67 +198,78 @@ open_modal.onclick = () => {
                     Pledge $${pledge} or more
                   </p>
                 </div>
-                <div class="flex stock-xl">
-                  <p style="color: ${stock === 0 ? "#7F7F7F" : ""};font-weight: 700;font-size: 18px;" class="stock">${stock}</p>
-                  <p style="color: ${stock === 0 ? "#7F7F7F" : ""};margin-left: 6px;">left</p>
-                </div>
+                ${document.body.clientWidth > 450 ?
+                  `
+                    <div class="flex stock-xl">
+                      <p style="color: ${stock === 0 ? "#7F7F7F" : ""};font-weight: 700;font-size: 18px;" class="${stock === 0 ? "" : "stock"}">${stock}</p>
+                      <p style="color: ${stock === 0 ? "#7F7F7F" : ""};margin-left: 6px;">left</p>
+                    </div>
+                  `
+                  :""
+                }
               </div>
-              <div class="reward-description">
+              <div class="reward-description available-reward-description">
                 <span>
                     ${rewardDescription}
                 </span>
-                <div class="flex-between-items-center stock-mb">
-                  <p style="color: ${stock === 0 ? "#7F7F7F" : ""};font-weight: 700;font-size: 20px;" class="stock">${stock}</p>
-                  <p style="color: ${stock === 0 ? "#7F7F7F" : ""};">left</p>
-                </div>
+                ${document.body.clientWidth < 450 ?
+                      `
+                        <div class="flex stock-xl">
+                          <p style="color: ${stock === 0 ? "#7F7F7F" : ""};font-weight: 700;font-size: 18px;" class="${stock === 0 ? "" : "stock"}">${stock}</p>
+                          <p style="color: ${stock === 0 ? "#7F7F7F" : ""};margin-left: 6px;">left</p>
+                        </div>
+                      `
+                      :""
+                    }
               </div>
             </div>
           </div>
           <div class="flex-between-items-center flex-column-between-center-mb form-pledge">
-            <span>Enter yout pledge</span>
-            <div class="flex-between-items-center inputs">
-              <div class="text-input flex-items-center">
-                <p>$</p>
-                <input 
-                  type="number" 
-                  min="${pledge}" 
-                  max="${pledge * stock}" 
-                  data-pledge=${pledge} 
-                  data-stock=${stock} 
-                  class="pledge-input" 
-                  value=${pledge} 
-                  onkeypress="return false;">
-                <div class="flex-column">
-                  <button class="steup" onclick="test2(${idx}, '${pledge}')">
-                      <img src="./images/arrow-up.png" width="10">
-                  </button>
-                  <button class="stepdown" onclick="test2(${idx}, '-${pledge}')">
-                      <img 
-                        src="./images/arrow-up.png" 
-                        width="10"
-                        style="transform: rotate(180deg);"
-                        >
-                  </button>
-                </div>
-              </div>
-              <div class="buttons-pledge flex-between">
-                <button class="btn-continue">Continue</button>
-              </div>
+          <span>Enter yout pledge</span>
+          <div class="flex-between-items-center inputs">
+          <div class="text-input flex-items-center">
+          <p>$</p>
+          <input 
+            type="number" 
+            min="${pledge}" 
+            max="${pledge * stock}" 
+            data-pledge=${pledge} 
+            data-stock=${stock} 
+            class="pledge-input" 
+            value=${pledge} 
+            onkeypress="return false;">
+          <div class="flex-column">
+            <button class="steup" onclick="test2(${idx}, '${pledge}')">
+                <img src="./images/arrow-up.png" width="10">
+            </button>
+            <button class="stepdown" onclick="test2(${idx}, '-${pledge}')">
+                <img 
+                  src="./images/arrow-up.png" 
+                  width="10"
+                  style="transform: rotate(180deg);"
+                >
+            </button>
+          </div>
+        </div>
+            <div class="buttons-pledge flex-between">
+              <button class="btn-continue">Continue</button>
             </div>
           </div>
+        </div>
+ 
         </div>
       `
     newdiv.appendChild(div)
   })
   const project = document.querySelectorAll(".project")
   const form_pledge = document.querySelectorAll(".form-pledge")
-  const text_modal_project = document.querySelectorAll(".text-modal-project");
+  const text_modal_project = document.querySelectorAll(".available");
   const border_modal_project = document.querySelectorAll(".border-modal-project")
   const pledge_input = document.querySelectorAll(".pledge-input");
   const btn_continue = document.querySelectorAll(".btn-continue");
   const steup = document.querySelectorAll(".steup");
   const stedown = document.querySelectorAll(".stepdown");
-  const reward_description = document.querySelectorAll('.reward-description')
+  const reward_description = document.querySelectorAll('.available-reward-description')
   let a = false;
   let height = []
   text_modal_project.forEach((elem, idx) => {
@@ -280,6 +287,7 @@ open_modal.onclick = () => {
     }
     // console.log("TEST")
     let reward_descriptionHeight = Number(reward_description[idx].offsetHeight);
+    // stock
     let projectHeight = Number(project[idx].offsetHeight);
     let formPledgeHeight = Number(form_pledge[idx].offsetHeight);
     height.push({
@@ -325,10 +333,13 @@ open_modal.onclick = () => {
       const idValue = document.querySelectorAll(".id-reward-header")[idx];
       const stockValue = document.querySelectorAll(".stock")[idx];
       //   console.log(id.innerText)
+      console.log(stockValue)
+      console.log(document.querySelectorAll(".stock"))
       stock = {
         stock: stockValue.innerText,
         a: a
       }
+      console.log(stock);
       id = idValue.innerText
       progress = Number(value)
       console.log(setNominal + progress)
